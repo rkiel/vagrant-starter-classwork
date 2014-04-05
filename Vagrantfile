@@ -17,8 +17,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.define "rails" do |box|
     box.vm.provision "shell", path: "provision/rvm.sh"
+    box.vm.provision "shell", path: "provision/postgresql_client.sh"
 
-    box.vm.network "forwarded_port", guest: 3000, host: 3030
+    box.vm.network "private_network", ip: "192.168.33.10"
+  end
+
+  config.vm.define "postgres" do |box|
+    box.vm.provision "shell", path: "provision/postgresql_server.sh"
+
+    box.vm.network "private_network", ip: "192.168.33.11"
   end
 
   # Create a forwarded port mapping which allows access to a specific port
