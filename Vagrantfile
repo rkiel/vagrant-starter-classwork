@@ -28,6 +28,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     box.vm.network "private_network", ip: "192.168.33.11"
   end
 
+  config.vm.define "nginx" do |box|
+    box.vm.provision "shell", path: "provision/rvm.sh"
+    box.vm.provision "shell", path: "provision/postgresql_client.sh"
+    box.vm.provision "shell", path: "provision/nginx.sh"
+
+    box.vm.network "private_network", ip: "192.168.33.12"
+  end
+
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
