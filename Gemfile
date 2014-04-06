@@ -40,6 +40,8 @@ end
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.8.2'
 
+gem 'rspec-rails', '~> 2.14.2', group: [:development, :test]
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
