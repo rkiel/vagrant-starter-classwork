@@ -45,6 +45,7 @@ group :development, :test do
   gem 'cucumber-rails', '~> 1.4.0', require: false
   gem 'database_cleaner', '~> 1.2.0'
   gem 'byebug', '~> 2.7.0'
+  gem 'guard-rspec', '~> 4.2.8'
 end
 #  gem 'database_cleaner'
 
